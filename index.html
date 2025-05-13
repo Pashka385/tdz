@@ -4,15 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>АПК КВИЗ</title>
-  <style>
-          #certificate-template{
-  /* display:none; */
-  visibility: hidden;
-    }
-    *{
-      overflow-y:hidden ;
-    }
-  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <link rel="stylesheet" href="style.css">
@@ -45,14 +36,20 @@
       </div>
     </div>
   </div>
-    <div id="certificate-template" style="width: 100%; height: 500px; padding: 40px; background: url('./test.png') no-repeat center center; background-size: cover; color: #000; font-family: Arial, sans-serif; text-align: center;">
-    <h1>Сертификат</h1>
-    <p>Выдан:</p>
-    <h2 id="certificate-name">ИМЯ</h2>
-    <p>За успешное прохождение теста по косметологии</p>
-    <p>Результат: <span id="certificate-score">0</span> из <span id="certificate-total">0</span></p>
-    <p>Дата: <span id="certificate-date"></span></p>
-  </div>
+<div id="certificate-template" style="display: none; position: absolute; left: -9999px; width: 800px; height: 600px; padding: 40px; background: #fff9e6; border: 15px solid #f0e0a0; color: #000; font-family: 'Times New Roman', serif; text-align: center;">
+    <h1 style="color: #8b4513; font-size: 36px; margin-bottom: 40px;">Сертификат</h1>
+    <p style="font-size: 18px;">Выдан:</p>
+    <h2 id="certificate-name" style="color: #8b4513; font-size: 32px; margin: 30px 0; text-decoration: underline;">ИМЯ</h2>
+    <p style="font-size: 18px; margin-bottom: 30px;">За успешное прохождение теста по косметологии</p>
+    <p style="font-size: 20px;">Результат: <span id="certificate-score" style="font-weight: bold;">0</span> из <span id="certificate-total" style="font-weight: bold;">0</span></p>
+    <p style="font-size: 20px; margin-top: 20px;">Дата: <span id="certificate-date"></span></p>
+    <div style="margin-top: 60px; display: flex; justify-content: space-around;">
+        <div>
+            <div style="width: 200px; border-top: 1px solid #8b4513; margin: 0 auto; padding-top: 10px;"></div>
+            <p>Подпись руководителя</p>
+        </div>
+    </div>
+</div>
     <script src="./script.js"></script>
 </body>
 </html>
