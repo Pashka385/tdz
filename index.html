@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>АПК КВИЗ</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>АПК КВИЗ</h1>
+      <p class="subtitle"></p>
+    </div>
+
+    <div class="quiz-content">
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="progress-text" id="progress-text">Вопрос 1 из 10</div>
+
+      <div id="quiz-box"></div>
+      <div class="controls">
+        <button class="action-btn" id="next-btn">Далее</button>
+      </div>
+
+      <div class="result-box" id="result-box">
+        <div class="result-emoji" id="result-emoji">🎉</div>
+        <h2 class="result-title">Тест завершен!</h2>
+        <div class="score-display">Ваш результат: <span id="final-score">0</span> из <span id="total-questions-result">0</span></div>
+        <input type="text" class="username-input" id="username" placeholder="Ваше имя (необязательно)">
+        <button class="action-btn" onclick="generateCertificate()">Скачать сертификат</button>
+        <button class="action-btn secondary" onclick="restartQuiz()">Пройти тест снова</button>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+  <div id="certificate-template" style="width: 100%; min-height: 100vh; padding: 0px; background: url('test.png') no-repeat center center; background-size: cover; color: #000; font-family: Arial, sans-serif; text-align: center;">
+    <h1>Сертификат</h1>
+    <p>Выдан:</p>
+    <h2 id="certificate-name">ИМЯ</h2>
+    <p>За успешное прохождение теста в интелектуальном квизе</p>
+    <p>Результат: <span id="certificate-score">0</span> из <span id="certificate-total">0</span></p>
+    <p>Дата: <span id="certificate-date"></span></p>
+  </div>
+</html>
