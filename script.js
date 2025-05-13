@@ -178,32 +178,64 @@
     }
 
 function generateCertificate() {
-  const userName = document.getElementById('username').value || 'Аноним';
-  const today = new Date();
-  const dateStr = today.toLocaleDateString('ru-RU');
+    // Получаем данные пользователя
+    const userName = document.getElementById('username').value || 'Аноним';
+    const dateStr = new Date().toLocaleDateString('ru-RU');
+    const certElement = document.getElementById('certificate-template');
+    
+    // Устанавливаем данные в шаблон
+    document.getElementById('certificate-name').textContent = userName;
+    document.getElementById('certificate-score').textContent = score;
+    document.getElementById('certificate-total').textContent = quizData.length;
+    document.getElementById('certificate-date').textContent = dateStr;
 
-  // Установим значения в шаблоне
-  document.getElementById('certificate-name').textContent = userName;
-  document.getElementById('certificate-score').textContent = score;
-  document.getElementById('certificate-total').textContent = quizData.length;
-  document.getElementById('certificate-date').textContent = dateStr;
+    // Временно показываем и позиционируем элемент для рендеринга
+    certElement.style.display = 'block';
+    certElement.style.position = 'fixed';
+    certElement.style.left = '0';
+    certElement.style.top = '0';
+    certElement.style.zIndex = '99999';
+    certElement.style.width = '800px';
+    certElement.style.height = '600px';
 
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+    // Ждем ререндер страницы
+    setTimeout(() => {
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({
+            orientation: 'landscape',
+            unit: 'mm',
+            format: 'a4'
+        });
 
-  const certElement = document.getElementById('certificate-template');
-  html2canvas(certElement).then(canvas => {
-    const imgData = canvas.toDataURL('image/png');
-    const imgProps = doc.getImageProperties(imgData);
-    const pdfWidth = doc.internal.pageSize.getWidth();
-    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        html2canvas(certElement, {
+            scale: 2, // Улучшаем качество
+            logging: false,
+            useCORS: true,
+            width: 800,
+            height: 600,
+            scrollX: 0,
+            scrollY: 0
+        }).then(canvas => {
+            // Сразу скрываем элемент после рендеринга
+            certElement.style.display = 'none';
+            certElement.style.position = 'absolute';
+            certElement.style.left = '-9999px';
 
-    doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    doc.save(`Косметология_Сертификат_${userName}.pdf`);
-  }).catch(err => {
-    console.error("Ошибка генерации сертификата:", err);
-    alert("Ошибка при создании сертификата. Попробуйте снова.");
-  });
+            const imgData = canvas.toDataURL('image/png');
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save(`Косметология_Сертификат_${userName.replace(/\s+/g, '_')}.pdf`);
+        }).catch(err => {
+            console.error("Ошибка генерации сертификата:", err);
+            alert("Ошибка при создании сертификата. Попробуйте снова.");
+            // Все равно скрываем элемент в случае ошибки
+            certElement.style.display = 'none';
+            certElement.style.position = 'absolute';
+            certElement.style.left = '-9999px';
+        });
+    }, 100); // Даем 100мс на отрисовку DOM
 }
 
 
