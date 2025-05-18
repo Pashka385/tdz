@@ -1,96 +1,106 @@
 
-  
-    const quizData = [
-      {
-        id: 1,
-        question_text: "Какая абревиатура нашего колледжа?",
-        answers: [
-          { id: 1, answer_text: "ГПОАС ИС БК", is_correct: false },
-          { id: 2, answer_text: "ИСИП У ДЕДА", is_correct: false },
-          { id: 3, answer_text: "АКСЖКХ", is_correct: false },
-          { id: 4, answer_text: "ГПОАУ АО АПК", is_correct: true }
-        ]
-      },
-      {
-        id: 2,
-        question_text: "Какую пароду собак любит Торба Нина Викторовна?",
-        answers: [
-          { id: 5, answer_text: "Мопс", is_correct: true },
-          { id: 6, answer_text: "Чау чау", is_correct: false },
-          { id: 7, answer_text: "Корги", is_correct: false },
-          { id: 8, answer_text: "Мейнкун", is_correct: false }
-        ]
-      },
-      {
-        id: 3,
-        question_text: "При помощи какого документа студент может зайти в колледж при забытом пропуске?",
-        answers: [
-          { id: 9, answer_text: "СНИЛС", is_correct: false },
-          { id: 10, answer_text: "ИНН", is_correct: false },
-          { id: 11, answer_text: "Студенческий билет", is_correct: true },
-          { id: 12, answer_text: "Полис", is_correct: false }
-        ]
-      },
-      {
-        id: 4,
-        question_text: "Какой номер кабинета у заведующего отделенеим?",
-        answers: [
-          { id: 13, answer_text: "№23", is_correct: false },
-          { id: 14, answer_text: "№33", is_correct: true },
-          { id: 15, answer_text: "№35", is_correct: false },
-          { id: 16, answer_text: "№15", is_correct: false }
-        ]
-      },
-      {
-        id: 5,
-        question_text: "В какое время начинаеться обед в ВТ-ПТ?",
-        answers: [
-          { id: 17, answer_text: "11:15", is_correct: true },
-          { id: 18, answer_text: "12:30", is_correct: false },
-          { id: 19, answer_text: "11:00", is_correct: false },
-          { id: 20, answer_text: "10:30", is_correct: false }
-        ]
-      },
-      {
-        id: 6,
-        question_text: "Как зовут системного администратора?",
-        answers: [
-          { id: 21, answer_text: "Марат Игнатович", is_correct: false },
-          { id: 22, answer_text: "Василий Денисович", is_correct: false },
-          { id: 23, answer_text: "Андрей Игоревич", is_correct: true },
-          { id: 24, answer_text: "Дмитрий Евгеньевич", is_correct: false }
-        ]
-      },
-      {
-      id: 7,
-      question_text: "Что означает красная обложка зачетной книжки?",
-      answers: [
-        { id: 25, answer_text: "Отличник учебы", is_correct: true },
-        { id: 26, answer_text: "Долги по предметам", is_correct: false },
-        { id: 27, answer_text: "Задолженность по оплате", is_correct: false },
-        { id: 28, answer_text: "Участие в студсовете", is_correct: false }
-      ]
-      },
-      {
-      id: 8,
-      question_text: "На каком этаже вывешываваеться рассписание?",
-      answers: [
-    { id: 29, answer_text: "На третьем этаже.", is_correct: false },
-    { id: 30, answer_text: "На первом этаже.", is_correct: true },
-    { id: 31, answer_text: "На втором этаже.", is_correct: false },
-  ]
-      },
-      {
-      id: 9,
-      question_text: "Какого размера базовая стипендия в нашем колледже?",
-      answers: [
-    { id: 32, answer_text: "700-900 руб.", is_correct: true },
-    { id: 33, answer_text: "500-600 руб.", is_correct: false },
-    { id: 34, answer_text: "1000-1200 руб.", is_correct: false },
-  ]
-      },
-
-    ];
+const quizData = [
+  {
+    id: 1,
+    question_text: "Какова основная функция операционной системы?",
+    answers: [
+      { id: 1, answer_text: "Писать код", is_correct: false },
+      { id: 2, answer_text: "Управлять аппаратными и программными ресурсами компьютера", is_correct: true },
+      { id: 3, answer_text: "Просматривать интернет", is_correct: false },
+      { id: 4, answer_text: "Разрабатывать графику", is_correct: false }
+    ]
+  },
+  {
+    id: 2,
+    question_text: "Какой из следующих вариантов НЕ является операционной системой?",
+    answers: [
+      { id: 5, answer_text: "Windows", is_correct: false },
+      { id: 6, answer_text: "Linux", is_correct: false },
+      { id: 7, answer_text: "Photoshop", is_correct: true },
+      { id: 8, answer_text: "macOS", is_correct: false }
+    ]
+  },
+  {
+    id: 3,
+    question_text: "Что означает аббревиатура ЦП?",
+    answers: [
+      { id: 9, answer_text: "Центральный Процессор", is_correct: true },
+      { id: 10, answer_text: "Компьютерный Персональный Устройство", is_correct: false },
+      { id: 11, answer_text: "Центральный Программный Устройство", is_correct: false },
+      { id: 12, answer_text: "Компьютерный Процессор Пользователя", is_correct: false }
+    ]
+  },
+  {
+    id: 4,
+    question_text: "Какой язык программирования считается языком низкого уровня, близким к машинному коду?",
+    answers: [
+      { id: 13, answer_text: "Python", is_correct: false },
+      { id: 14, answer_text: "Ассемблер", is_correct: true },
+      { id: 15, answer_text: "Java", is_correct: false },
+      { id: 16, answer_text: "C++", is_correct: false }
+    ]
+  },
+  {
+    id: 5,
+    question_text: "Какой тип памяти является энергозависимым и теряет содержимое при отключении питания?",
+    answers: [
+      { id: 17, answer_text: "ПЗУ", is_correct: false },
+      { id: 18, answer_text: "ОЗУ", is_correct: true },
+      { id: 19, answer_text: "Жесткий диск", is_correct: false },
+      { id: 20, answer_text: "SSD", is_correct: false }
+    ]
+  },
+  {
+    id: 6,
+    question_text: "Что означает аббревиатура HTML?",
+    answers: [
+      { id: 21, answer_text: "Язык разметки гипертекста", is_correct: true },
+      { id: 22, answer_text: "Язык гипертекстовой машины", is_correct: false },
+      { id: 23, answer_text: "Язык разметки высокого текста", is_correct: false },
+      { id: 24, answer_text: "Язык гипертекстовых таблиц", is_correct: false }
+    ]
+  },
+  {
+    id: 7,
+    question_text: "Какой протокол в основном используется для передачи веб-страниц в интернете?",
+    answers: [
+      { id: 25, answer_text: "FTP", is_correct: false },
+      { id: 26, answer_text: "SMTP", is_correct: false },
+      { id: 27, answer_text: "HTTP", is_correct: true },
+      { id: 28, answer_text: "HTTPS", is_correct: false }
+    ]
+  },
+  {
+    id: 8,
+    question_text: "Какое устройство используется для долговременного хранения данных?",
+    answers: [
+      { id: 29, answer_text: "ОЗУ", is_correct: false },
+      { id: 30, answer_text: "ЦП", is_correct: false },
+      { id: 31, answer_text: "Жесткий диск", is_correct: true },
+      { id: 32, answer_text: "Кэш", is_correct: false }
+    ]
+  },
+  {
+    id: 9,
+    question_text: "Что такое 'ошибка' в терминах программирования?",
+    answers: [
+      { id: 33, answer_text: "Программная ошибка", is_correct: true },
+      { id: 34, answer_text: "Аппаратное устройство", is_correct: false },
+      { id: 35, answer_text: "Руководство пользователя", is_correct: false },
+      { id: 36, answer_text: "Инструмент программирования", is_correct: false }
+    ]
+  },
+  {
+    id: 10,
+    question_text: "Какой из этих вариантов является популярной парадигмой программирования?",
+    answers: [
+      { id: 37, answer_text: "Объектно-ориентированное программирование", is_correct: true },
+      { id: 38, answer_text: "Водопад", is_correct: false },
+      { id: 39, answer_text: "Agile", is_correct: false },
+      { id: 40, answer_text: "Scrum", is_correct: false }
+    ]
+  }
+];
 
     let currentQuestionIndex = 0;
     let score = 0;
@@ -226,7 +236,7 @@ function generateCertificate() {
             const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
             pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save(`Косметология_Сертификат_${userName.replace(/\s+/g, '_')}.pdf`);
+            pdf.save(`IT_Сертификат_${userName.replace(/\s+/g, '_')}.pdf`);
         }).catch(err => {
             console.error("Ошибка генерации сертификата:", err);
             alert("Ошибка при создании сертификата. Попробуйте снова.");
